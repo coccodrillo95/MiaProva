@@ -2,19 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhysicsObject : MonoBehaviour {
+public class PhysicsObject : MonoBehaviour
 
-    public float gravityModifier = 1f;
+{
+
     public float minGroundNormalY= .65f;
-
-    protected Rigidbody2D rb2d;
-    protected Vector2 velocity;
-    protected ContactFilter2D contactFilter2D;
-    protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
-    protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
+    public float gravityModifier = 1f;
+    
+    protected Vector2 targetVelocity;
     protected bool grounded;
     protected Vector2 groundNormal;
-    protected Vector2 targetVelocity;
+    protected Rigidbody2D rb2d;
+    protected Vector2 velocity;
+    protected ContactFilter2D contactFilter;
+    protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
+    protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
+    
+    
+    
 
 
     protected const float minMoveDistance = 0.001f;
@@ -30,9 +35,9 @@ public class PhysicsObject : MonoBehaviour {
     void Start ()
 
     {
-        contactFilter2D.useTriggers = false;
-        contactFilter2D.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
-        contactFilter2D.useLayerMask = true;
+        contactFilter.useTriggers = false;
+        contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
+        contactFilter.useLayerMask = true;
     }
 
 	
@@ -61,7 +66,7 @@ public class PhysicsObject : MonoBehaviour {
 
         Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
 
-        Vector2 move = moveAlongGround * deltaPosition.y;
+        Vector2 move = moveAlongGround * deltaPosition.x;
 
         Movement(move, false);
 
@@ -76,7 +81,7 @@ public class PhysicsObject : MonoBehaviour {
 
         if (distance > minMoveDistance)
         {
-            int count = rb2d.Cast(move, contactFilter2D, hitBuffer, distance + shellRadius);
+            int count = rb2d.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
             hitBufferList.Clear();
             for (int i = 0; i < count; i++)
             {

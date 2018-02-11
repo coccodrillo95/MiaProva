@@ -78,9 +78,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\2DPlatformer\Scripts\DeadzoneCamera.cs" />
-    <Compile Include="Assets\2DPlatformer\Scripts\PerfectPixel.cs" />
     <Compile Include="Assets\Script\AutoMoveCrate.cs" />
+    <Compile Include="Assets\Script\DeadzoneCamera.cs" />
+    <Compile Include="Assets\Script\PerfectPixel.cs" />
     <Compile Include="Assets\Script\PhysicsObject.cs" />
     <Compile Include="Assets\Script\PlayerPlatformerController.cs" />
   </ItemGroup>
