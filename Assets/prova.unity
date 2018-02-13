@@ -7795,7 +7795,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4237855052870848, guid: 6ccf0ce9da7c5894492f1dd3ccc8c9ee, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.106209
+      value: -7.02
       objectReference: {fileID: 0}
     - target: {fileID: 4237855052870848, guid: 6ccf0ce9da7c5894492f1dd3ccc8c9ee, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7823,15 +7823,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4237855052870848, guid: 6ccf0ce9da7c5894492f1dd3ccc8c9ee, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.1436243
+      value: 0.87105757
       objectReference: {fileID: 0}
     - target: {fileID: 4237855052870848, guid: 6ccf0ce9da7c5894492f1dd3ccc8c9ee, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2.1436245
+      value: 0.87105745
       objectReference: {fileID: 0}
     - target: {fileID: 4237855052870848, guid: 6ccf0ce9da7c5894492f1dd3ccc8c9ee, type: 2}
       propertyPath: m_LocalScale.z
-      value: 2.1436245
+      value: 0.87105745
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ccf0ce9da7c5894492f1dd3ccc8c9ee, type: 2}
@@ -27013,7 +27013,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.03
+      value: -7.35
       objectReference: {fileID: 0}
     - target: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088, type: 2}
       propertyPath: m_LocalPosition.z
@@ -27041,15 +27041,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088, type: 2}
       propertyPath: m_LocalScale.x
-      value: 3.8151166
+      value: 1.7370068
       objectReference: {fileID: 0}
     - target: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088, type: 2}
       propertyPath: m_LocalScale.y
-      value: 3.8151183
+      value: 1.7370076
       objectReference: {fileID: 0}
     - target: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088, type: 2}
       propertyPath: m_LocalScale.z
-      value: 3.8151183
+      value: 1.7370076
       objectReference: {fileID: 0}
     - target: {fileID: 1116900248984994, guid: e7fcecc826687024e9b52ec763b14088, type: 2}
       propertyPath: m_Name
@@ -27060,7 +27060,13 @@ Prefab:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 70113744766925634, guid: e7fcecc826687024e9b52ec763b14088,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 70113744766925634, guid: e7fcecc826687024e9b52ec763b14088, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e7fcecc826687024e9b52ec763b14088, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &902677493
@@ -43257,6 +43263,7 @@ MonoBehaviour:
   gravityModifier: 1
   maxSpeed: 7
   jumpTakeOffspeed: 7
+  DubleJump: 0
 --- !u!1 &1322967997
 GameObject:
   m_ObjectHideFlags: 0
@@ -43538,6 +43545,31 @@ GameObject:
   m_PrefabParentObject: {fileID: 1116900248984994, guid: e7fcecc826687024e9b52ec763b14088,
     type: 2}
   m_PrefabInternal: {fileID: 898964933}
+--- !u!61 &1326795890
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326795889}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000009685755, y: 0.37395516}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.24373241, y: 0.7034243}
+  m_EdgeRadius: 0
 --- !u!212 &1326795893 stripped
 SpriteRenderer:
   m_PrefabParentObject: {fileID: 212991655389708426, guid: e7fcecc826687024e9b52ec763b14088,
@@ -43558,6 +43590,7 @@ MonoBehaviour:
   gravityModifier: 1
   maxSpeed: 7
   jumpTakeOffspeed: 7
+  DubleJump: 0
 --- !u!1 &1327016091
 GameObject:
   m_ObjectHideFlags: 0
@@ -51350,7 +51383,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.046875
+  orthographic size: 3.1875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

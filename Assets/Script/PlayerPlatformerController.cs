@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerPlatformerController : PhysicsObject
 
+
 {
 
     public float maxSpeed = 7;
     public float jumpTakeOffspeed = 7;
+	public int DubleJump = 0;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -21,13 +23,23 @@ public class PlayerPlatformerController : PhysicsObject
     
     protected override void ComputeVelocity()
     {
-        Vector2 move = Vector2.zero;
+		
 
-        move.x = Input.GetAxis ("Horizontal");
+		Vector2 move = Vector2.zero;
 
-        if (Input.GetButtonDown("Jump") && grounded)
+		move.x = Input.GetAxis ("Horizontal");
+
+		if (grounded == true) 
+		{
+			DubleJump = 0;
+		}
+
+		if (Input.GetButtonDown("Jump") && DubleJump <=1)
         {
             velocity.y = jumpTakeOffspeed;
+			DubleJump++;
+			 
+
         }
         
         else if (Input.GetButtonUp("Jump"))

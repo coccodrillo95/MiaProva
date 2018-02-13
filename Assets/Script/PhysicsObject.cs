@@ -60,14 +60,13 @@ public class PhysicsObject : MonoBehaviour
         velocity.x = targetVelocity.x;
 
 
-        grounded = false;
-
         Vector2 deltaPosition = velocity * Time.deltaTime;
 
         Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
 
         Vector2 move = moveAlongGround * deltaPosition.x;
 
+		grounded = false;
         Movement(move, false);
 
         move = Vector2.up * deltaPosition.y;
@@ -95,6 +94,7 @@ public class PhysicsObject : MonoBehaviour
                 if (currentNormal.y > minGroundNormalY)
                 {
                     grounded = true;
+				
 
                     if (yMovement)
 
