@@ -83,6 +83,12 @@
     <Compile Include="Assets\Script\PerfectPixel.cs" />
     <Compile Include="Assets\Script\PhysicsObject.cs" />
     <Compile Include="Assets\Script\PlayerPlatformerController.cs" />
+    <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Controller2D.cs" />
+    <Compile Include="Assets\Scripts\PlatformController.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\RaycastController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
