@@ -26,31 +26,52 @@ public class Player : MonoBehaviour {
 	float velocityXSmoothing;
 
 	Controller2D controller;
+    Animator Anim;
 
 	Vector2 directionalInput;
 	bool wallSliding;
 	int wallDirX;
 
-	void Start() {
+	void Start()
+    {
 		controller = GetComponent<Controller2D> ();
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
-	}
+        Anim = GetComponent<Animator>();
+    }
 
-	void Update() {
+	void Update()
+    {
 		CalculateVelocity ();
 		HandleWallSliding ();
 
 		controller.Move (velocity * Time.deltaTime, directionalInput);
 
-		if (controller.collisions.above || controller.collisions.below) {
+       
+
+        //if ( velocity.x <0 )
+        {
+            Anim.SetBool("corsa", true);
+        }
+
+        //else
+        {
+            Anim.SetBool("corsa", false);
+        }
+
+
+        if (controller.collisions.above || controller.collisions.below) {
 			if (controller.collisions.slidingDownMaxSlope) {
 				velocity.y += controller.collisions.slopeNormal.y * -gravity * Time.deltaTime;
-			} else {
+            
+            }
+            else
+            {
 				velocity.y = 0;
-			}
+               
+            }
 		}
 	}
 
@@ -58,7 +79,8 @@ public class Player : MonoBehaviour {
 		directionalInput = input;
 	}
 
-	public void OnJumpInputDown() {
+	public void OnJumpInputDown()
+    {
 		if (wallSliding) {
 			if (wallDirX == directionalInput.x) {
 				velocity.x = -wallDirX * wallJumpClimb.x;
@@ -85,14 +107,16 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	public void OnJumpInputUp() {
+	public void OnJumpInputUp()
+    {
 		if (velocity.y > minJumpVelocity) {
 			velocity.y = minJumpVelocity;
 		}
 	}
 		
 
-	void HandleWallSliding() {
+	void HandleWallSliding()
+    {
 		wallDirX = (controller.collisions.left) ? -1 : 1;
 		wallSliding = false;
 		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
@@ -121,7 +145,8 @@ public class Player : MonoBehaviour {
 
 	}
 
-	void CalculateVelocity() {
+	void CalculateVelocity()
+    {
 		float targetVelocityX = directionalInput.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 		velocity.y += gravity * Time.deltaTime;
